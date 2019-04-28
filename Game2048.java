@@ -16,7 +16,6 @@ public class Game2048 extends JPanel {
         game.setResizable(false);
 
         game.add(new Game2048());
-
         game.setLocationRelativeTo(null);
         game.setVisible(true);
     }
