@@ -12,7 +12,7 @@ public class Game2048 extends JPanel {
         JFrame game = new JFrame();
         game.setTitle("2048");
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        game.setSize(400, 500);
+        game.setSize(340, 400);
         game.setResizable(false);
 
         game.add(new Game2048());
