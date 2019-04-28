@@ -1,5 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 public class Game2048 extends JPanel {
     private static final Color BR_COLOR = new Color(0x801C0A);
 
