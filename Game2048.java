@@ -352,5 +352,8 @@ public class Game2048 extends JPanel {
         game.add(new Game2048());
         game.setLocationRelativeTo(null);
         game.setVisible(true);
+
+        PlayMusic.playMusic("Ship Wrek_.wav");
     }
+
 }
