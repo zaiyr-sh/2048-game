@@ -1,18 +1,17 @@
 package src;
-import src.PlayMusic;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import javax.swing.*; //Graphical User Interface
+import java.awt.*; //Application Programming Interface for developing GUI
+import java.awt.event.KeyAdapter; //for receiving keyboard events
+import java.awt.event.KeyEvent; //when a key is pressed or typed
+import java.util.ArrayList; //is a changeable array
+import java.util.LinkedList; // LinkedList gives the same named methods to get, remove and insert an element
+import java.util.List; //represents an ordered sequence of objects.
 
 
 public class Game2048 extends JPanel {
     private static final Color BG_COLOR = new Color(0xbbada0);
-    private static final String FONT_NAME = "Arial";
+    private static final String FONT_NAME = "Arial Black";
     private static final int TILE_SIZE = 64;
     private static final int TILES_MARGIN = 16;
 
@@ -290,8 +289,8 @@ public class Game2048 extends JPanel {
                 g.drawString("You won!", 68, 150);
             }
             if (myLose) {
-                g.drawString("Game over!", 50, 130);
-                g.drawString("You lose!", 64, 200);
+                g.drawString("Game over!", 10, 130);
+                g.drawString("You lose!", 10, 200);
             }
             if (myWin || myLose) {
                 g.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
