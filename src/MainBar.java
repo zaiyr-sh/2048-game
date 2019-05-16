@@ -1,31 +1,41 @@
 package src;
-
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class MainBar extends JFrame {
-    private JButton GameButton = new JButton();
-    private JPanel MainBar = new JPanel();
-    private JButton button1;
-
-
-//    public MainBar() {
-//        GameButton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                if (e.getSource() == GameButton){
-//                    JOptionPane.showMessageDialog(null, "Hello");
-//                };
-//            }
-//        });
-//    }
-
+public class MainBar {
+    static JFrame mainPage;
     public static void main(String[] args) {
-        JFrame jFrame = new JFrame();
-        jFrame.setContentPane(new MainBar().MainBar);
-        jFrame.getContentPane().add(new JButton());
-        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.pack();
-        jFrame.setVisible(true);
-    }
+        mainPage = new JFrame();
+        mainPage.setTitle("2048");
+        mainPage.setResizable(false);
+        mainPage.setLayout(null);
+        mainPage.setSize(340, 400);
 
+        mainPage.setVisible(true);
+
+        JPanel jPanel = new JPanel(new FlowLayout(4));
+
+        mainPage.setContentPane(jPanel);
+
+        JButton button = new JButton(new ImageIcon("E:\\IAAU\\2048-game\\src\\Button image.jpg"));
+        mainPage.getContentPane().add(button);
+        button.setBounds(125,300,100, 40);
+
+
+        JButton quit = new JButton("Quit Game");
+        quit.setBounds(125,200,100, 40);
+
+        mainPage.getContentPane().add(quit);
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("button clicked");
+                mainPage.getContentPane().removeAll();
+                mainPage.getContentPane().add(new Game2048());
+            }
+        });
+        mainPage.setVisible(true);
+    }
 }

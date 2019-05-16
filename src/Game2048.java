@@ -1,28 +1,33 @@
 package src;
 
-import javax.swing.*; //Graphical User Interface
-import java.awt.*; //Application Programming Interface for developing GUI
-import java.awt.event.KeyAdapter; //for receiving keyboard events
-import java.awt.event.KeyEvent; //when a key is pressed or typed
-import java.util.ArrayList; //is a changeable array
-import java.util.LinkedList; // LinkedList gives the same named methods to get, remove and insert an element
-import java.util.List; //represents an ordered sequence of objects.
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 
-public class Game2048 extends JPanel {
+public class Game2048 extends JFrame {
     private static final Color BG_COLOR = new Color(0xbbada0);
     private static final String FONT_NAME = "Arial Black";
     private static final int TILE_SIZE = 64;
     private static final int TILES_MARGIN = 16;
 
-    private Tile[] myTiles;
+    private Tile[] myTiles; //плитка
     boolean myWin = false;
     boolean myLose = false;
     int myScore = 0;
 
     public Game2048() {
-        setPreferredSize(new Dimension(340, 400));
+        G2048();
+    }
+    public void G2048() {
+        setSize(new Dimension(340, 400));
         setFocusable(true); // move of figures
+        setResizable(false);
+        add(new JLabel("                                                         "));
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -54,13 +59,13 @@ public class Game2048 extends JPanel {
                     myLose = true;
                 }
 
-                repaint();
+                repaint(); //to change the look of the color, animating
             }
         });
         resetGame();
     }
 
-    public void resetGame() {
+    public void resetGame() { // сброс игры
         myScore = 0;
         myWin = false;
         myLose = false;
@@ -68,7 +73,6 @@ public class Game2048 extends JPanel {
         for (int i = 0; i < myTiles.length; i++) {
             myTiles[i] = new Tile();
         }
-        addTile();
         addTile();
     }
 
@@ -345,15 +349,16 @@ public class Game2048 extends JPanel {
     }
 
     public static void main(String[] args) {
-        JFrame game = new JFrame();
-        game.setTitle("2048");
-        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        game.setSize(340, 400);
-        game.setResizable(false);
+//        JFrame game = new JFrame();
+        JFrame mainPage = new JFrame();
+        mainPage.setTitle("2048");
+        mainPage.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainPage.setSize(340, 400);
+        mainPage.setResizable(false);
 
-        game.add(new Game2048());
-        game.setLocationRelativeTo(null);
-        game.setVisible(true);
+        mainPage.add(new Game2048());
+        mainPage.setLocationRelativeTo(null);
+        mainPage.setVisible(true);
 
         PlayMusic.playMusic("Ship Wrek_.wav");
     }
