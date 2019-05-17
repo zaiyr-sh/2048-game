@@ -5,38 +5,56 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainPage extends JFrame {
-    private static final Color bgColor = new Color(155, 62, 151);
-    public MainPage(){
-        setLocationRelativeTo(null);
-        setVisible(true);
-    }
 
-    public static void main(String[] args) {
-        JFrame mainPage = new MainPage();
+public class MainPage extends JFrame{
+
+
+    public static void main(String[] args){
+        JFrame mainPage = new JFrame();
         mainPage.setTitle("2048");
-        mainPage.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mainPage.setResizable(false);
         mainPage.setLayout(null);
-        mainPage.setSize(440, 500);
+        mainPage.setSize(340, 400);
 
-        JButton button = new JButton(new ImageIcon("E:\\IAAU\\2048-game\\src\\Button image.jpg"));
-        button.setBounds(150,400,105, 40);//125 300 100 40
-        mainPage.add(button);
+
+//        mainPage.add(new JLabel(new ImageIcon("E:\\IAAU\\2048-game\\src\\vtr1a.jpg")));
+        mainPage.getContentPane().setBackground(Color.cyan);
+
+        JButton button = new JButton("Start"); //new ImageIcon("E:\\IAAU\\2048-game\\src\\Button image.jpg")
+        mainPage.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        mainPage.getContentPane().add(button);
+        button.setBounds(125,100,100, 40);//125 300 100 40
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Game2048 game2048 = new Game2048();
+                game2048.setLocationRelativeTo(null);
                 game2048.setVisible(true);
             }
         });
-        mainPage.setVisible(true);
+        button.setBackground(Color.LIGHT_GRAY);
+        mainPage.add(button);
+
+
+        JButton rules = new JButton("Rules");
+        mainPage.getContentPane().add(rules);
+        rules.setBounds(125,200,100, 40);//125 300 100 40
+
+        rules.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Rulles rulles = new Rulles();
+                rulles.setLocationRelativeTo(null);
+                rulles.setVisible(true);
+            }
+        });
+        rules.setBackground(Color.LIGHT_GRAY);
+        mainPage.add(rules);
 
 
         JButton quit = new JButton("Quit Game");
-        quit.setBounds(300,100,105, 40);//125 300 100 40
-        mainPage.add(quit);
+        quit.setBounds(125,300,100, 40);//125 300 100 40
         quit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,8 +64,15 @@ public class MainPage extends JFrame {
         });
         quit.setBackground(Color.LIGHT_GRAY);
         //mainPage.add(new MainPage());
+        mainPage.add(quit);
 
-        mainPage.setLocationRelativeTo(null); // the same(null) position of the game
+
+        mainPage.setVisible(true);
+
+
+        mainPage.setLocationRelativeTo(null); // the same(null) position of the menu
         PlayMusic.playMusic("src\\background music.wav");
+
     }
+
 }

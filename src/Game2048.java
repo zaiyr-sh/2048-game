@@ -1,8 +1,9 @@
 package src;
-import src.PlayMusic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -10,20 +11,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-public class Game2048 extends JPanel {
+public class Game2048 extends JFrame {
     private static final Color BG_COLOR = new Color(0xbbada0);
-    private static final String FONT_NAME = "Arial";
+    private static final String FONT_NAME = "Arial Black";
     private static final int TILE_SIZE = 64;
     private static final int TILES_MARGIN = 16;
 
-    private Tile[] myTiles;
+    private Tile[] myTiles; //плитка
     boolean myWin = false;
     boolean myLose = false;
     int myScore = 0;
 
     public Game2048() {
-        setPreferredSize(new Dimension(340, 400));
+        setSize(new Dimension(340, 400));
+        G2048();
+    }
+    public void G2048() {
+        setSize(new Dimension(340, 400));
         setFocusable(true); // move of figures
+        setResizable(false);
+        add(new JLabel());
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -55,13 +62,13 @@ public class Game2048 extends JPanel {
                     myLose = true;
                 }
 
-                repaint();
+                repaint(); //to change the look of the color, animating
             }
         });
         resetGame();
     }
 
-    public void resetGame() {
+    public void resetGame() { // сброс игры
         myScore = 0;
         myWin = false;
         myLose = false;
@@ -69,7 +76,6 @@ public class Game2048 extends JPanel {
         for (int i = 0; i < myTiles.length; i++) {
             myTiles[i] = new Tile();
         }
-        addTile();
         addTile();
     }
 
@@ -290,8 +296,8 @@ public class Game2048 extends JPanel {
                 g.drawString("You won!", 68, 150);
             }
             if (myLose) {
-                g.drawString("Game over!", 50, 130);
-                g.drawString("You lose!", 64, 200);
+                g.drawString("Game over!", 10, 130);
+                g.drawString("You lose!", 10, 200);
             }
             if (myWin || myLose) {
                 g.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
@@ -346,17 +352,31 @@ public class Game2048 extends JPanel {
     }
 
     public static void main(String[] args) {
-        JFrame game = new JFrame();
-        game.setTitle("2048");
-        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        game.setSize(340, 400);
-        game.setResizable(false);
+//        JFrame game = new JFrame();
+        JFrame mainPage = new JFrame();
+        mainPage.setTitle("2048");
+        mainPage.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        mainPage.setSize(340, 400);
+        mainPage.setResizable(false);
 
-        game.add(new Game2048());
-        game.setLocationRelativeTo(null);
-        game.setVisible(true);
+        mainPage.add(new Game2048());
+        mainPage.setLocationRelativeTo(null);
+        mainPage.setVisible(true);
 
-        PlayMusic.playMusic("Ship Wrek_.wav");
+        JButton bttn = new JButton("Back");
+        mainPage.getContentPane().add(bttn);
+        bttn.setBounds(125,200,100, 40);
+        bttn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainPage mainbar = new MainPage();
+                mainbar.setLocationRelativeTo(null);
+                mainbar.setVisible(true);
+            }
+        });
+        bttn.setBackground(Color.LIGHT_GRAY);
+
+//        PlayMusic.playMusic("Ship Wrek_.wav");
     }
 
 }
