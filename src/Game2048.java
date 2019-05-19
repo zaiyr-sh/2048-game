@@ -254,7 +254,7 @@ public class Game2048 extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
         g.setColor(BG_COLOR);
-        g.fillRect(0, 0, this.getSize().width, this.getSize().height);
+        g.fillRect(0, 0, this.getSize().width, this.getSize().height); //Fills the specified rectangle.
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 drawTile(g, myTiles[x + y * 4], x, y);
@@ -262,22 +262,22 @@ public class Game2048 extends JFrame {
         }
     }
 
-    private void drawTile(Graphics g2, Tile tile, int x, int y) {
-        Graphics2D g = ((Graphics2D) g2);
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE);
+    private void drawTile(Graphics g2, Tile tile, int x, int y) { //method  is used to draw the specified string.
+        Graphics2D g = ((Graphics2D) g2); //provide control over geometry, coordinate transformations, color management, and text layout
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON); // настройка сглаживания фигур
+        g.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_NORMALIZE); // видоизменения геометрии фигур
         int value = tile.value;
         int xOffset = offsetCoors(x);
         int yOffset = offsetCoors(y);
         g.setColor(tile.getBackground());
-        g.fillRoundRect(xOffset, yOffset, TILE_SIZE, TILE_SIZE, 14, 14);
+        g.fillRoundRect(xOffset, yOffset, TILE_SIZE, TILE_SIZE, 14, 14); //Fills the specified rounded corner rectangle with the current color.
         g.setColor(tile.getForeground());
         final int size = value < 100 ? 36 : value < 1000 ? 32 : 24;
-        final Font font = new Font(FONT_NAME, Font.BOLD, size);
+        final Font font = new Font(FONT_NAME, Font.BOLD, size); // represents fonts, which are used to see the text in a visible way.
         g.setFont(font);
 
         String s = String.valueOf(value);
-        final FontMetrics fm = getFontMetrics(font);
+        final FontMetrics fm = getFontMetrics(font); //to determine the size  of characters and strings.
 
         final int w = fm.stringWidth(s);
         final int h = -(int) fm.getLineMetrics(s, g).getBaselineOffsets()[2];
