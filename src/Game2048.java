@@ -2,8 +2,6 @@ package src;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -363,18 +361,19 @@ public class Game2048 extends JFrame {
         mainPage.setLocationRelativeTo(null);
         mainPage.setVisible(true);
 
-        JButton bttn = new JButton("Back");
-        mainPage.getContentPane().add(bttn);
-        bttn.setBounds(125,200,100, 40);
-        bttn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MainPage mainbar = new MainPage();
-                mainbar.setLocationRelativeTo(null);
-                mainbar.setVisible(true);
-            }
-        });
-        bttn.setBackground(Color.LIGHT_GRAY);
+//        JButton bttn = new JButton("Back");
+//        bttn.setLayout(null);
+//        mainPage.getContentPane().add(bttn);
+//        bttn.setBounds(125,200,100, 40);
+//        bttn.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                MainPage mainbar = new MainPage();
+//                mainbar.setLocationRelativeTo(null);
+//                mainbar.setVisible(true);
+//            }
+//        });
+//        bttn.setBackground(Color.LIGHT_GRAY);
 
 //        PlayMusic.playMusic("Ship Wrek_.wav");
     }

@@ -11,7 +11,8 @@ public class MainPage extends JFrame{
 
     public static void main(String[] args){
         JFrame mainPage = new JFrame();
-        mainPage.setTitle("2048");
+        mainPage.setTitle("Menu");
+        mainPage.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         mainPage.setResizable(false);
         mainPage.setLayout(null);
         mainPage.setSize(340, 400);
@@ -21,7 +22,6 @@ public class MainPage extends JFrame{
         mainPage.getContentPane().setBackground(Color.cyan);
 
         JButton button = new JButton("Start"); //new ImageIcon("E:\\IAAU\\2048-game\\src\\Button image.jpg")
-        mainPage.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         mainPage.getContentPane().add(button);
         button.setBounds(125,100,100, 40);//125 300 100 40
 
