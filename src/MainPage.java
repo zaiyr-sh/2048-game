@@ -17,13 +17,17 @@ public class MainPage extends JFrame{
         mainPage.setLayout(null);
         mainPage.setSize(340, 400);
 
+//        mainPage.add(new JLabel(new ImageIcon("Path/To/Your/Image.png")));
 
-//        mainPage.add(new JLabel(new ImageIcon("E:\\IAAU\\2048-game\\src\\vtr1a.jpg")));
+        JButton picture = new JButton(new ImageIcon("E:\\IAAU\\2048-game\\src\\picture2048.png"));
+        mainPage.getContentPane().add(picture);
+        picture.setBounds(45,10,252, 62);
+
         mainPage.getContentPane().setBackground(Color.cyan);
 
-        JButton button = new JButton("Start"); //new ImageIcon("E:\\IAAU\\2048-game\\src\\Button image.jpg")
+        JButton button = new JButton("START");
         mainPage.getContentPane().add(button);
-        button.setBounds(125,100,100, 40);//125 300 100 40
+        button.setBounds(125,100,100, 40);
 
         button.addActionListener(new ActionListener() {
             @Override
@@ -37,7 +41,7 @@ public class MainPage extends JFrame{
         mainPage.add(button);
 
 
-        JButton rules = new JButton("Rules");
+        JButton rules = new JButton("HELP");
         mainPage.getContentPane().add(rules);
         rules.setBounds(125,200,100, 40);//125 300 100 40
 
@@ -53,7 +57,7 @@ public class MainPage extends JFrame{
         mainPage.add(rules);
 
 
-        JButton quit = new JButton("Quit Game");
+        JButton quit = new JButton("QUIT");
         quit.setBounds(125,300,100, 40);//125 300 100 40
         quit.addActionListener(new ActionListener() {
             @Override
@@ -63,7 +67,6 @@ public class MainPage extends JFrame{
             }
         });
         quit.setBackground(Color.LIGHT_GRAY);
-        //mainPage.add(new MainPage());
         mainPage.add(quit);
 
 

@@ -13,11 +13,10 @@ public class Rulles extends JFrame {
 
 
     public void rulles() {
-//        JFrame rulle = new JFrame();
 
         setSize(new Dimension(340, 400));
         setResizable(false);
-        setFocusable(true); // move of figures
+//        setFocusable(true); // move of figures
         add(new JLabel());
 
         setTitle("Rulles");
