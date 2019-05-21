@@ -48,7 +48,7 @@ public class MainPage extends JFrame{
         rules.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Rulles rulles = new Rulles();
+                Rules rulles = new Rules();
                 rulles.setLocationRelativeTo(null);
                 rulles.setVisible(true);
             }

@@ -1,12 +1,12 @@
 package src;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import javax.swing.*; //Graphical User Interface
+import java.awt.*; //Application Programming Interface for developing GUI
+import java.awt.event.KeyAdapter; //for receiving keyboard events
+import java.awt.event.KeyEvent; //when a key is pressed or typed
+import java.util.ArrayList; //is a changeable array
+import java.util.LinkedList; // LinkedList gives the same named methods to get, remove and insert an element
+import java.util.List; //represents an ordered sequence of objects.
 
 
 public class Game2048 extends JFrame {
@@ -300,11 +300,11 @@ public class Game2048 extends JFrame {
             if (myWin || myLose) {
                 g.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
                 g.setColor(new Color(128, 128, 128, 128));
-                g.drawString("Press ESC to play again", 80, getHeight() - 40);
+                g.drawString("Press ESC to play again", 10, getHeight() - 40);
             }
         }
         g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
-        g.drawString("Score: " + myScore, 200, 365);
+        g.drawString("Score: " + myScore, 230, 365);
 
     }
 
@@ -350,7 +350,6 @@ public class Game2048 extends JFrame {
     }
 
     public static void main(String[] args) {
-//        JFrame game = new JFrame();
         JFrame mainPage = new JFrame();
         mainPage.setTitle("2048");
         mainPage.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -361,21 +360,6 @@ public class Game2048 extends JFrame {
         mainPage.setLocationRelativeTo(null);
         mainPage.setVisible(true);
 
-//        JButton bttn = new JButton("Back");
-//        bttn.setLayout(null);
-//        mainPage.getContentPane().add(bttn);
-//        bttn.setBounds(125,200,100, 40);
-//        bttn.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                MainPage mainbar = new MainPage();
-//                mainbar.setLocationRelativeTo(null);
-//                mainbar.setVisible(true);
-//            }
-//        });
-//        bttn.setBackground(Color.LIGHT_GRAY);
-
-//        PlayMusic.playMusic("Ship Wrek_.wav");
     }
 
 }
