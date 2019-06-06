@@ -20,7 +20,6 @@ Proposed activities | Power Point Presentation
 Estimative budget | 0 $
 Proposed partners | Nobody
 Git repository link | https://github.com/zaiyr00/2048-game
-Contact person | Name      :   Zaiyr   Surname : Sharsheev   email       :   zaiyr.sharsheev@iaau.edu.kg   mobile    : +996 222   20 30 68
 
 Software Features List  :
 1.	Data storage (Files, Databases)
